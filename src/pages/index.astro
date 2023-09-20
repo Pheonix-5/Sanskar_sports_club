@@ -1,6 +1,7 @@
 ---
-import "../css/style.css"
-
+import Header from "../components/header.astro";
+import Sport from "../components/sport.astro";
+import "../css/style.css";
 ---
 
 <html lang="en">
@@ -9,128 +10,64 @@ import "../css/style.css"
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<style>
-			@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap');
+			@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Exo+2:wght@100;200;300;400;500;600;700;800&display=swap");
 		</style>
 		<title>Sanskar Sports Club</title>
-
 	</head>
 	<body>
 		<!-- <div id="preloader">
 			<span>Sanskar Sports Club | &#169; All Right Reserved</span>
 		</div> -->
+
 		<header>
 			<nav>
 				<div class="logo">
-					<a href="https://sanskareducationalgroup.ac.in/"><img src="/logo-seg-1.jpg" alt="clg logo"></a>
+					<a href="https://sanskareducationalgroup.ac.in/"
+						><img src="/logo-seg-1.jpg" alt="clg logo" /></a
+					>
 				</div>
 				<ul class="b_nav">
-					<a href="#HOME"><li class="active" >HOME</li></a>
-					<a href="#U_E"><li  >UPCOMING EVENTS</li></a>
-					<a href="#STD"><li  >STANDINGS</li></a>
-					<a href="#C_US"><li  >CONTACT US</li></a>
+					<a href="/"><li class="active">HOME</li></a>
+					<a href="datanotpresent"><li>UPCOMING EVENTS</li></a>
+					<a href="datanotpresent"><li>STANDINGS</li></a>
+					<a href="datanotpresent"><li>CONTACT US</li></a>
 				</ul>
-				<div class="hamburgur_menu">
+				<div class="hamburgur_menu" aria-pressed="false">
 					<div class="ham"></div>
 				</div>
-
 			</nav>
 			<div class="banner">
 				<span>SANSKAR SPORT CLUB</span>
 			</div>
 		</header>
-		<div class="mob_menu">
+		<div class="mob_menu" id="mobile_menu" data-visible="false">
 			<ul class="mob_nav">
-				<a href="#HOME"><li class="active" >HOME</li></a>
-				<a href="#U_E"><li  >UPCOMING EVENTS</li></a>
-				<a href="#STD"><li  >STANDINGS</li></a>
-				<a href="#C_US"><li  >CONTACT US</li></a>
+				<a href="/"><li class="active">HOME</li></a>
+				<a href="datanotpresent"><li>UPCOMING EVENTS</li></a>
+				<a href="datanotpresent"><li>STANDINGS</li></a>
+				<a href="datanotpresent"><li>CONTACT US</li></a>
 			</ul>
 		</div>
 		<main>
-			<section  id="HOME">
+			<section id="HOME">
 				<div class="about">
-					<span>Welcom to SCET Sports Club page</span>
+					<span class="quote"
+						>"Sport is not about winning or losing. It's about
+						giving your all."</span
+					>
+					<p></p>
 				</div>
-				<section class="portfolio" id="skills">
-			<div class="heading">
-				<h3>Sports</h3>
-				<h2>Register and Participate</h2>
-			</div>
-	
-			<div class="portfolio-content">
-				<div class="col">
-					<img src="./image/Sport1.jpg" alt="">
-					<div class="layer">
-						<h3>Race</h3>
-					</div>
-	
-				   <div class="btn-cen"><div class="btn-pink" id="btn">Register</div></div>
-				</div>
-	
-				<div class="col">
-					<img src="./image/Sport2.jpg" alt="">
-					<div class="layer">
-						<h3>Basketball</h3>
-					</div>
-	
-					<div class="btn-cen"><div class="btn-pink" id="btn">Register</div></div>
-				</div>
-	
-	
-	
-				<div class="col">
-					<img src="./image/Sport3.jpg" alt="">
-					<div class="layer">
-						<h3>Vollyball</h3>
-					</div>
-	
-	
-					<div class="btn-cen"><div class="btn-pink" id="btn">Register</div></div>
-				</div>
-	
-	
-				<div class="col">
-					<img src="./image/Sport4.jpg" alt="">
-					<div class="layer">
-						<h3>Badminton</h3>
-					</div>
-	
-	
-					<div class="btn-cen"><div class="btn-pink" id="btn">Register</div></div>
-				</div>
-	
-	
-				<div class="col">
-					<img src="./image/Sport5.jpg" alt="">
-					<div class="layer">
-						<h3>Football</h3>
-					</div>
-	
-					<div class="btn-cen"><div class="btn-pink" id="btn">Register</div></div>
-				</div>
-	
-	
-				<div class="col">
-					<img src="./image/Sport6.jpg" alt="">
-					<div class="layer">
-						<h3>Cricket</h3>
-					</div>
-	
-					<div class="btn-cen"><div class="btn-pink" id="btn">Register</div></div>
-				</div>
-			</div>
-		</section>
-				<div style="text-align: center; margin: 100px; font-size: 40px; font-weight:bold">
-					MORE SPORTS COMING SOON
-				</div>
+				<Sport />
 			</section>
 		</main>
 		<footer>
-			<span>Copyright All Right Reserved 2022, Shree Ganpati Educational Society</span>
-			<span>Designed By - <a href="https://akshaysharmaportfolio.site/">AKSHAY SHARMA</a></span>
+			<span>Copyright All Right Reserved 2023</span>
+			<span>Designed By - <a href="">Anonymous</a></span>
 		</footer>
-		<script src="../script/script.js"></script>
+		<script>
+			import "../script/script.js";
+		</script>
 	</body>
 </html>

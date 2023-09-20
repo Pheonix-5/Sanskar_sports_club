@@ -1,0 +1,125 @@
+---
+import Header from "../components/Header.astro";
+import Index from "./index.astro";
+import "../css/style.css";
+---
+
+
+<style>
+    
+    body {
+background-color: #f0f0f0;
+margin: 0;
+padding: 0;
+}
+
+.container {
+text-align: center;
+margin: 10% auto;
+padding: 20px;
+background-color: #ffffff;
+border-radius: 5px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+color: #333;
+}
+
+p {
+color: #777;
+margin-top: 20px;
+}
+button{
+    margin: 25px 10px;
+    display: inline-flex;
+
+}
+button {
+    display: inline-block;
+    text-decoration: none;
+    margin: 35 10px;
+    border: 2px solid #9f4fe5;
+    color: #9f4fe5;
+    font-weight: 500;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #9f4fe5;
+    color: #fff;
+
+}
+body {
+font-family: Arial, sans-serif;
+background-color: #f0f0f0;
+margin: 0;
+padding: 0;
+}
+
+.container {
+text-align: center;
+margin: 10% auto;
+height: 100%;
+width: 100%;
+padding: 20px;
+background-color: #ffffff;
+border-radius: 5px;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+color: #333;
+animation: slideInUp 1s ease-in-out;
+}
+
+p {
+color: #777;
+margin-top: 20px;
+animation: slideInUp 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+0% {
+    opacity: 0;
+}
+100% {
+    opacity: 1;
+}
+}
+
+@keyframes slideInUp {
+0% {
+    transform: translateY(100px);
+    opacity: 0;
+}
+100% {
+    transform: translateY(0);
+    opacity: 1;
+}
+}
+
+@media (max-width:426px) {
+    body{
+        background-color: #9f4fe5 !important;
+    }
+    
+}
+
+</style>
+<Header/>
+<div class="container">
+    <img src="/norecord.png" alt="">
+    <h1>No Record Found</h1>
+    <p>Sorry, no records were found for your query.</p>
+    <button>
+        View Event calender
+    </button>
+    <button>
+        Download Calender
+    </button>
+</div>
+

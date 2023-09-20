@@ -56,6 +56,7 @@ body{
 }
 
 
+
 nav{
     display: flex;
     padding: 10px;
@@ -65,6 +66,7 @@ nav{
     position: fixed;
     inset: 0 0 auto 0;
     z-index: 1000;
+    filter: drop-shadow(0px 2px 3px black);
 }
 
 nav .logo img{
@@ -119,22 +121,23 @@ nav ul li:hover{
     bottom: 10px;
 }
 
-.hamburgur_menu:hover{
-    .ham,.ham::after, .ham::before{
-        background-color: var(--ham_color);
+.hamburgur_menu[aria-pressed = "true"]{
+        .ham,.ham::after, .ham::before{
+            background-color: var(--ham_color);
+        }
+        .ham::before{
+            bottom: 0;
+            transform: translateX(35px);
+        }
+        .ham::after{
+            bottom: 0;
+            transform: translateX(-35px);
+        }
     }
-    .ham::before{
-        bottom: 0;
-        transform: translateX(35px);
-    }
-    .ham::after{
-        bottom: 0;
-        transform: translateX(-35px);
-    }
-}
-
+    
 .mob_menu{
-    background-color: #0009;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.724);
     position: absolute;
     top: 0;
     right: 0;
@@ -142,10 +145,16 @@ nav ul li:hover{
     width: 50%;
     position: fixed;
     z-index: 999;
-    display: flex;
     align-items: center;
     justify-content: center;
-    
+    transition: all 0.3s linear;
+}
+
+.mob_menu[data-visible = "false"]{
+    transform: translateX(100%);
+}
+.mob_menu[data-visible = "true"]{
+    transform: translateX(0%);
 }
 
 .mob_nav li{
@@ -167,6 +176,17 @@ nav ul li:hover{
         transition: all 0.3s linear;
         margin: 0 20px 0 0;
     }
+    .mob_menu{
+        display: flex;
+        width: 100%;
+    }
+
+}
+
+@media (max-width:426px){
+    .mob_nav li{
+        font-size: 20px;
+    } 
 }
 
 .active{
@@ -197,104 +217,16 @@ header{
     margin: 50px 20px 20px 20px;
 }
 
+@media (max-width:426px){
+    .banner span{
+        font-size: 30px;
+    }
+}
+
 #HOME{
     height: auto;
     width: 100%;
     padding: 20px 0 20px 0;
-}
-
-.sports{
-    display: flex;
-    margin: auto;
-    width: 95%;
-    height: auto;
-    justify-content: space-around;
-}
-
-.basketball, .circket, .football{
-    height: 230px;
-    width: 310px;
-    filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.575));
-    position: relative;
-    display: flex;
-    z-index: 0;
-    transition: all 0.3s linear;
-}
-
-.basketball{
-    background: linear-gradient(to right, rgba(245, 238, 238, 0.29), rgba(0, 0, 0, 0.539)),url(assest/gif-image/basketball.jpg);
-    background-position:center ;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.basketball:hover{
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.221), rgba(0, 0, 0, 0.176)),url(assest/gif-image/basketball.gif);
-    background-position:center ;
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
-.circket{
-    background: linear-gradient(to right, rgba(245, 238, 238, 0.29), rgba(0, 0, 0, 0.539)),url(assest/gif-image/CIRCKET.jpg);
-    background-position:center ;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.circket:hover{
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.221), rgba(0, 0, 0, 0.176)),url(assest/gif-image/CIRCKET.gif);
-    background-position:center ;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.football{
-    background: linear-gradient(to right, rgba(245, 238, 238, 0.29), rgba(0, 0, 0, 0.539)),url(assest/gif-image/football.jpg);
-    background-position:center ;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.football:hover{
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.221), rgba(0, 0, 0, 0.176)), url(assest/gif-image/football.gif);
-    background-position:center ;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.football:hover, .circket:hover, .basketball:hover{
-    transition:all 0.3s linear;
-    transform: scale(1.025);
-}
-
-.games{
-    overflow: hidden;
-    border-radius: 20px;
-}
-
-.games .text{
-    width: 100%;
-    color: rgb(255, 255, 255);
-    margin: 20px;
-    font-weight: bold;
-    font-size: 25px;
-    text-align: center;
-    filter: drop-shadow(1px 1px 2px black);
-}
-.regis{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 25px 5px 25px 0;
-}
-.regis a{
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    background-color: #252524c7;
-    border-radius: 20px;
-    padding: 15px;
 }
 
 footer{
@@ -306,24 +238,48 @@ footer{
     color: white;
     
 }
+@media(max-width:769px){
+    footer{
+        font-size: 12px;
+    }
+}
+
 a{
     text-decoration: none;
     color: white;
 }
 
 
-.circket_regis{
-    position: absolute;
-    right: 0;
-}
-
 .about{
-    height: 10vh;
-    width: 80%;
+    text-transform: uppercase;
+    height: auto;
     margin: auto;
-    margin-bottom: 30px;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 30px;
 }
 
+
+.quote{
+    padding: 10px;
+    background: linear-gradient(
+        to right, purple , green,
+         red, yellow);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+}
+
+
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
 
 
 /* krishna */
@@ -339,20 +295,21 @@ a{
     line-height: 1.1;
 }
 
-.heading h3{
-    color: var(--main-color);
-    font-size: 20px;
-    font-weight: 500;
-}
-
 .heading p{
     font-size: var(--p-font);
     color: var(--secound-color);
     line-height: 28px;
 }
 
-section{
-    padding: 100px 18%;
+.portfolio{
+    padding: 100px 5%;
+}
+
+@media (max-width:426px) {
+    .portfolio{
+        padding: 60px 5%;
+    }
+    
 }
 
 .portfolio-content{
@@ -368,6 +325,7 @@ section{
 .col{
     position: relative;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 
@@ -502,3 +460,258 @@ section{
         transition: .3s;
     }
 }
+
+.upcoming .carousel{
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) -12px);
+    margin-top: 5rem;
+    overflow-x: auto;
+    width: 80%;
+    margin: auto;
+  /*   scroll-snap-type: x mandatory; */
+    gap: 16px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+  }
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel.no-transition {
+    scroll-behavior: auto;
+  }
+  .carousel.dragging {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+  }
+  .carousel.dragging .card {
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel :where(.card, .img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .carousel .card {
+    scroll-snap-align: start;
+    height: 342px;
+    list-style: none;
+    background: #fff;
+    cursor: pointer;
+    padding-bottom: 15px;
+    flex-direction: column;
+    border-radius: 8px;
+  }
+  .carousel .card .img {
+    /* background-image: url(Image/event1.jpg); */
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    border-radius: 10px;
+      box-shadow: 0 7px 8px rgba(0, 0, 0, 0.4);
+  
+  }
+  .card .img img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+  }
+  .carousel .card h2 {
+    font-weight: 500;
+    font-size: 1.56rem;
+    margin: 30px 0 5px;
+  }
+  .carousel .card span {
+    color: #6A6D78;
+    font-size: 1.31rem;
+  }
+  
+  #img1{
+      background-image: url(/image/event2.jpg);
+  }
+  
+  #img2{
+      background-image: url(/image/event1.jpg);
+  }
+  
+  #img3{
+      background-image: url(/image/event3.jpg);
+  }
+  
+  #img4{
+      background-image: url(/image/event4.jpg);
+  }
+  
+  #img5{
+      background-image: url(/image/event3.jpg);
+  }
+  
+  #img6{
+      background-image: url(/image/event1.jpg);
+  }
+  
+  @media screen and (max-width: 900px) {
+    .upcoming .carousel {
+      grid-auto-columns: calc((100% 0/5) - 10px);
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .upcoming .carousel {
+      grid-auto-columns: 100%;
+    }
+  }
+  
+
+
+
+  /* FORM */
+
+  .full_form{
+    font-family: 'Exo 2', sans-serif !important;
+    background-color: #ffffff;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 110px;
+    margin-bottom: 20px;
+  }
+
+  
+  .box{
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    height: auto;
+    padding: 30px;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: unset;
+    filter:drop-shadow(2px 2px 5px rgb(0, 0, 0));
+  }
+
+  @media (max-width:769px) {
+    .box{
+        flex-direction: column;
+        height: auto;
+    }
+    
+  }
+
+  /*---------------------------------------------- RULE STYLING --------------------------------         */
+
+.rule-page, .form-page{
+    width: 100%;
+    height: auto;
+
+}
+
+
+  
+  
+  .rules-box{
+    height: auto;
+    width: 100%;
+    filter: drop-shadow(1px 1px 20px rgba(0, 0, 0, 0.603));
+    background-color: #ffffff;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 20px 50px 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+   
+  }
+  
+  /* .game-img{
+    height: 35%;
+    width: 80%;
+    background-image: linear-gradient(#614385 ,#516395);
+    background-size: cover;
+  } */
+  
+  .rule-text{
+    padding-top: 10px;
+    height: 40%;
+    width: 80%;
+   
+  }
+  
+  .rule-text ul {
+    margin-top: 2px;
+    list-style: none;
+  }
+  
+  .rule-text ul li {
+    margin-bottom: 5px;
+    font-size: small;
+  }
+  
+  
+  /*---------------------------------------------------- Form Styling --------------------------------------------  */
+  
+  /* Reset some default styles for better consistency */
+   label, input, select {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Apply a background color and text color to the body */
+
+  /* Style the header */
+  .heading{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  /* Style form elements */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-group button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .form-group button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media screen and (max-width: 600px) {
+    
+    input[type="text"],
+    select {
+        width: 100%;
+    }
+    
+    .form-group button {
+        width: 100%;
+    }
+  }
