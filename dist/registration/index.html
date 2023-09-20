@@ -1,0 +1,208 @@
+<!DOCTYPE html><!-- 
+<style>
+    
+
+nav{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+    filter: drop-shadow(0px 2px 3px black);
+}
+
+nav .logo img{
+    width: 150px;
+    margin: 0 20px 0 20px;
+}
+nav ul, nav a{
+    text-decoration: none;
+    list-style-type: none;
+    color: #000;
+    font-weight: 800;
+}
+
+nav ul{
+    display: flex;
+    gap: 3rem;
+    padding: 0 50px 0 0;
+}
+
+nav ul li:hover{
+    color: var(--main_navcolor);
+    transition: all 0.2s linear;
+    filter: opacity(1);
+}
+
+.hamburgur_menu{
+    display: none;
+}
+.ham{
+    position: relative;
+    background-color: #000;
+    height: 5px;
+    width: 30px;
+    border-radius: 20px;
+
+}
+.ham::after, .ham::before{
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: #ef1a1a;
+    height: 5px;
+    width: 30px;
+    border-radius: 20px;
+    transition: all 0.3s linear;
+}
+
+.ham::after{
+    bottom: -10px;
+}
+.ham::before{
+    bottom: 10px;
+}
+
+.hamburgur_menu[aria-pressed = "true"]{
+        .ham,.ham::after, .ham::before{
+            background-color: var(--ham_color);
+        }
+        .ham::before{
+            bottom: 0;
+            transform: translateX(35px);
+        }
+        .ham::after{
+            bottom: 0;
+            transform: translateX(-35px);
+        }
+    }
+    
+.mob_menu{
+    display: none;
+    background-color: rgba(0, 0, 0, 0.724);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    position: fixed;
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s linear;
+}
+
+.mob_menu[data-visible = "false"]{
+    transform: translateX(100%);
+}
+.mob_menu[data-visible = "true"]{
+    transform: translateX(0%);
+}
+
+.mob_nav li{
+    list-style: none;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 20px;
+    text-align: center;
+} 
+
+@media (max-width:824px) {
+
+    .b_nav{
+        display: none;
+    }
+    .hamburgur_menu{
+        display: flex;
+        padding: 20px;
+        transition: all 0.3s linear;
+        margin: 0 20px 0 0;
+    }
+    .mob_menu{
+        display: flex;
+        width: 100%;
+    }
+
+}
+
+@media (max-width:426px){
+    .mob_nav li{
+        font-size: 20px;
+    } 
+}
+
+.active{
+    color:var(--main_navcolor);
+    position: relative;
+}
+
+header{
+    position: relative;
+}
+
+.banner{
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.833), #c88f53b0), url(/back.jpg);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    color: white;
+    display: flex;
+    align-items: self-end;
+    margin-bottom: 10px;
+}
+
+.banner span{
+    font-size: 40px;
+    font-weight: 900;
+    filter: drop-shadow(1px 1px 10px black);
+    margin: 50px 20px 20px 20px;
+}
+
+@media (max-width:426px){
+    .banner span{
+        font-size: 30px;
+    }
+}
+
+#HOME{
+    height: auto;
+    width: 100%;
+    padding: 20px 0 20px 0;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    height: auto;
+    padding: 25px;
+    color: white;
+    
+}
+@media(max-width:769px){
+    footer{
+        font-size: 12px;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+</style> --><link rel="stylesheet" href="/_astro/datanotpresent.0f84b82f.css" /><header><nav><div class="logo"><a href="https://sanskareducationalgroup.ac.in/"><img src="/logo-seg-1.jpg" alt="clg logo"></a></div><ul class="b_nav"><a href="/"><li class="active">HOME</li></a><a href="datanotpresent"><li>UPCOMING EVENTS</li></a><a href="datanotpresent"><li>STANDINGS</li></a><a href="datanotpresent"><li>CONTACT US</li></a></ul><div class="hamburgur_menu" aria-pressed="false"><div class="ham"></div></div></nav></header><div class="mob_menu" id="mobile_menu" data-visible="false"><ul class="mob_nav"><a href="/"><li class="active">HOME</li></a><a href="datanotpresent"><li>UPCOMING EVENTS</li></a><a href="datanotpresent"><li>STANDINGS</li></a><a href="datanotpresent"><li>CONTACT US</li></a></ul></div><div class="full_form"><div class="box"><div class="rule-page"><div class="rules-box"><h2 class="rule-sport-name">Basketball</h2><div class="game-img" id="Basketball-img"></div><div class="rule-text"><div><h3>Rules</h3></div><ul><li>&#10003; Score with field goals (2 or 3 points).</li><li>
+&#10003; Teams field 5 players, with substitutes available.
+</li><li>
+&#10003; Dribble while moving to maintain ball possession.
+</li><li>
+&#10003; Avoid violations like double-dribbling and carrying
+                    the ball.
+</li><li>
+&#10003; Games have four 12-minute quarters in regulation
+                    play.
+</li><li>
+&#10003; Personal fouls lead to free throws and team fouls.
+</li></ul></div></div></div><div class="form-page"><main><div class="heading"><h1>Register Here</h1></div><form action="send.php" method="POST"><div class="form-group"><label for="fullname">Full Name:</label><input type="text" id="fullname" name="fullname" required></div><div class="form-group"><label for="gender">Gender:</label><select id="gender" name="gender" required><option value="male">Male</option><option value="female">Female</option><option value="other">Other</option></select></div><div class="form-group"><label for="year">Year:</label><input type="text" id="year" name="year" required></div><div class="form-group"><label for="branch">Branch:</label><input type="text" id="branch" name="branch" required></div><div class="form-group"><label for="rollno">Roll No.:</label><input type="text" id="rollno" name="rollno" required></div><div class="form-group"><label for="sports">Sports:</label><select id="sports" name="sports" required><option value="basketball">Basketball</option><option value="volleyball">Volleyball</option><option value="badminton">Badminton</option><option value="cricket">Cricket</option></select></div><div class="form-group"><button type="submit">Submit</button></div></form></main></div></div></div>
